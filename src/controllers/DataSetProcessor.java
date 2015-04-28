@@ -45,7 +45,7 @@ public class DataSetProcessor {
             				if (c.toString().isEmpty()) {
             					print("Enrollment NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) >= 1000) {
-            					print("Enrollment >= 1000" + "\t");
+            					print("Enrollment > 1000" + "\t");
             				} else {
             					print("Enrollment < 1000" + "\t");
             				}
@@ -432,7 +432,7 @@ public class DataSetProcessor {
     }
     
     void print(String s) {
-    	System.out.print(s);
+//    	System.out.print(s);
     	try {
 			writer.write(s);
 		} catch (IOException e) {
@@ -441,7 +441,7 @@ public class DataSetProcessor {
     }
     
     void println(String s) {
-    	System.out.println(s);
+//    	System.out.println(s);
     	try {
 			writer.write(s);
 			writer.endRecord();
