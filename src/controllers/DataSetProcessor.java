@@ -15,7 +15,7 @@ import com.csvreader.CsvWriter;
 
 public class DataSetProcessor {
 	CsvWriter writer;
-	private final int NUM_OF_ROW = 1542;
+	private final int NUM_OF_ROW_GEN_ED_SURVEY = 1542;
 	
 	public DataSetProcessor(String output_file_path) {
 		try {
@@ -26,7 +26,6 @@ public class DataSetProcessor {
 	}
 
     private void processGenEdSurvey(String input_file_path) {
-    	// Write csv header line
 //    	writeCSVHeaders();
     	
     	FileInputStream fis = null;
@@ -39,7 +38,7 @@ public class DataSetProcessor {
             Sheet sheet = workbook.getSheetAt(0);
             for (Row r: sheet) {
             	for (Cell c: r) {
-            		if (c != null && c.getRowIndex() > 1 && c.getRowIndex() < NUM_OF_ROW) {
+            		if (c != null && c.getRowIndex() > 1 && c.getRowIndex() < NUM_OF_ROW_GEN_ED_SURVEY) {
             			if (c.getColumnIndex() < 5) {
             				print(c + "\t");
             			} else if (c.getColumnIndex() == 5) {
@@ -385,7 +384,7 @@ public class DataSetProcessor {
         }
     }
     
-    private void writeCSVHeaders() {
+    private void writeGenEdSurveyHeaders() {
     	try {
     		writer.write("DBN#_1");
         	writer.write("DBN#_2");
