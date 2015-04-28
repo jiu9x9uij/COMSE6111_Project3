@@ -25,7 +25,7 @@ public class DataSetProcessor {
 		}
 	}
 
-    private void getStudentsListFromExcel(String input_file_path) {
+    private void processGenEdSurvey(String input_file_path) {
     	// Write csv header line
 //    	writeCSVHeaders();
     	
@@ -453,7 +453,7 @@ public class DataSetProcessor {
 
     public static void main(String args[]) {
     	DataSetProcessor dataSetProcessor = new DataSetProcessor("INTEGRATED-DATASET.csv");
-    	dataSetProcessor.getStudentsListFromExcel("dataset_raw.xls");
+    	dataSetProcessor.processGenEdSurvey("dataset_raw.xls");
     }
 
 }
