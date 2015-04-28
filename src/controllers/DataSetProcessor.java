@@ -25,9 +25,7 @@ public class DataSetProcessor {
 		}
 	}
 
-    private void processGenEdSurvey(String input_file_path) {
-//    	writeCSVHeaders();
-    	
+    private void processGenEdSurvey(String input_file_path) {    	
     	FileInputStream fis = null;
         try {
             fis = new FileInputStream(input_file_path);
@@ -383,54 +381,7 @@ public class DataSetProcessor {
             e.printStackTrace();
         }
     }
-    
-    private void writeGenEdSurveyHeaders() {
-    	try {
-    		writer.write("DBN#_1");
-        	writer.write("DBN#_2");
-        	writer.write("School Name");
-        	writer.write("Principal");
-        	writer.write("School Type");
-        	writer.write("Enrollment");
-        	writer.write("Parent Academic Expectations Score");
-        	writer.write("Student Academic Expectations Score");
-        	writer.write("Teacher Academic Expectations Score");
-        	writer.write("Academic Expectations Score");
-        	writer.write("Parent Communication Score");
-        	writer.write("Student Communication Score");
-        	writer.write("Teacher Communication Score");
-        	writer.write("Communication Score");
-        	writer.write("Parent Engagement Score");
-        	writer.write("Student Engagement Score");
-        	writer.write("Teacher Engagement Score");
-        	writer.write("Engagement Score");
-        	writer.write("Parent Safety and Respect Score");
-        	writer.write("Student Safety and Respect Score");
-        	writer.write("Teacher Safety and Respect Score");
-        	writer.write("Safety and Respect Score");
-        	writer.write("Parent Horizon Academic Expectations Score");
-        	writer.write("Student Horizon Academic Expectations Score");
-        	writer.write("Teacher Horizon Academic Expectations Score");
-        	writer.write("Horizon Academic Expectations Score");
-        	writer.write("Parent Horizon Communication Score");
-        	writer.write("Student Horizon Communication Score");
-        	writer.write("Teacher Horizon Communication Score");
-        	writer.write("Horizon Communication Score");
-        	writer.write("Parent Horizon Engagement Score");
-        	writer.write("Student Horizon Engagement Score");
-        	writer.write("Teacher Horizon Engagement Score");
-        	writer.write("Horizon Engagement Score");
-        	writer.write("Parent Horizon Safety and Respect Score");
-        	writer.write("Student Horizon Safety and Respect Score");
-        	writer.write("Teacher Horizon Safety and Respect Score");
-        	writer.write("Horizon Safety and Respect Score");
-			writer.endRecord();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
-    
+
     void print(String s) {
 //    	System.out.print(s);
     	try {

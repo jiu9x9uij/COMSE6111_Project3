@@ -54,8 +54,7 @@ public class DataMiner {
 	 *  build L_1 (large 1-itemsets) and store pruned result in L.
 	 **/
 	private void initializeData() {
-//		System.out.println("######### initializeData #########");///
-		List<ItemSet> L_1 = new ArrayList<ItemSet>();;
+		List<ItemSet> L_1 = new ArrayList<ItemSet>();
 		
 		try {
 			while (reader.readRecord()) {
@@ -86,23 +85,11 @@ public class DataMiner {
 					} else {
 						L_1.get(levelOneItemSetIdx).increaseSupportCount();
 					}
-					
-//					System.out.println(L_1.toString());///
-//					System.out.println("itemID = " + itemID);///
-//					System.out.println(cell);///
 				}
 				transactions.add(transaction);
-//				System.out.println("items.size() = " + items.size());///
-//				System.out.println(items.toString());///
-//				System.out.println(transaction.toString());///
-//				System.out.println();///
 			}
 			
 			reader.close();
-//			System.out.println("items.size() = " + items.size());///
-//			System.out.println("transactions.size() = " + transactions.size());///
-//			System.out.println("L_1.size() = " + L_1.size());///
-//			System.out.println("L_1 = " + L_1.toString());///
 			
 			// Prune L_1 with minSup
 			for (ItemSet is: L_1) {
@@ -111,39 +98,31 @@ public class DataMiner {
 				}
 			}
 			
-//			System.out.println("L = " + L.toString());///
 		} catch (IOException e) {
 			System.out.println("ERROR: Failed to read CSV file. Please make sure the file is supported.");
-		} 
-		
-//		System.out.println("############# end ############");///
+		}
 	}
 	
 	/**
 	 * Compute frequent itemsets using standard Apriori algorithm.
 	 */
 	private void frequentItemsets() {
-//		System.out.println("######### apriori #########");///
 		List<ItemSet> L_kp = new ArrayList<ItemSet>(); // L_(k-1)
 		L_kp.addAll(L);
 		List<ItemSet> L_k;
 		
 		int q = 0;
 		while (L_kp.size() != 0) {	
-//			System.out.println("L_kp = " + L_kp.toString());///
 			
 			L_k = new ArrayList<ItemSet>();
 			
 			List<ItemSet> C_k = aprioriGen(L_kp);
 			
 			for (List<Integer> t: transactions) {
-//				System.out.println("t = " + t.toString());///
 				// Find subset C_t of C_k that is contained in transaction t
 				for (ItemSet is: C_k) {
-//					System.out.println("\tis = " + is.toString());///
 					boolean inC_t = true;
-					for (Integer i: is.getItems()) {						
-//						System.out.println("\t\ti = " + i + " t.indexOf(i) = " + t.indexOf(i));///
+					for (Integer i: is.getItems()) {
 						if (t.indexOf(i) == -1) {
 							inC_t = false;
 							break;
@@ -153,8 +132,6 @@ public class DataMiner {
 					// Increase support counts of item sets in C_k that belongs to C_t
 					if (inC_t) {
 						is.increaseSupportCount();
-//						System.out.println("\tincr -> C_k = " + C_k.toString());///
-						
 					}
 				}
 			}
@@ -165,13 +142,9 @@ public class DataMiner {
 					L_k.add(is);
 				}
 			}
-//			System.out.println("L_k = " + L_k.toString() + "\n");///
 			L.addAll(L_k);
 			L_kp = L_k;
 		}
-		
-//		System.out.println("L = " + L.toString());///
-//		System.out.println("############# end ############");///
 	}
 	
 	/**
@@ -180,7 +153,6 @@ public class DataMiner {
 	 * @return Set of all possible k-itemsets.
 	 */
 	private List<ItemSet> aprioriGen(List<ItemSet> L_kp) {
-//		System.out.println("\t========= aprioriGen =========");///
 		List<ItemSet> C_k = new ArrayList<ItemSet>();
 		
 		/* Join step */
@@ -199,32 +171,14 @@ public class DataMiner {
 			}
 		}
 		
-		/* TEST pruning with example in paper 
-		L_kp = new ArrayList<ItemSet>();
-		L_kp.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 2, 3)), 1));
-		L_kp.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 2, 4)), 1));
-		L_kp.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 3, 4)), 1));
-		L_kp.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 3, 5)), 1));
-		L_kp.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(2, 3, 4)), 1));
-		
-		C_k = new ArrayList<ItemSet>();
-		C_k.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4)), 1));
-		C_k.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 3, 4, 5)), 1));
-		*/
-		
 		/* Prune step */
 		List<ItemSet> PrunedC_k = new ArrayList<ItemSet>();
-//		System.out.println("\tL_kp = " + L_kp.toString());///
-//		System.out.println("\tC_k = " + C_k.toString());///
 		for (ItemSet is: C_k) {
 			List<List<Integer>> subsets = generateKpSubsets(is.getItems());
-//			System.out.println("\t\tis = " + is.toString());///
-//			System.out.println("\t\tsubsets = " + subsets.toString());///
 			boolean allSubsetsInLkp = true;
 			for (List<Integer> s: subsets) {
 				// If any of the (k-1)-subset of current item set is not in L_kp,
 				// current item set is pruned from C_k
-//				System.out.println("\t\t\ts = " + s.toString() + " idx = " + L_kp.indexOf(s));///
 				if (L_kp.indexOf(new ItemSet(s, -1)) == -1) {
 					allSubsetsInLkp = false;
 					break;
@@ -232,12 +186,9 @@ public class DataMiner {
 			}
 			if (allSubsetsInLkp) {
 				PrunedC_k.add(is);
-//				System.out.println("\t\tadd -> PrunedC_k = " + C_kFinal.toString());///
 			}
 		}
-//		System.out.println("\tPrunedC_k = " + PrunedC_k.toString());///
 		
-//		System.out.println("\t============= end ============");///
 		return PrunedC_k;
 	}
 	
@@ -283,21 +234,9 @@ public class DataMiner {
 	 * Given that frequent itemsets are computed, compute high confidence association rules.
 	 */
 	private void highConfidenceAssociationRules() {
-//		System.out.println("###### associationRules ######");///
-		
-		/* TEST subsets  
-		L = new ArrayList<ItemSet>();
-		L.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4)), 1));
-		L.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 2, 4)), 1));
-		L.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 3, 4)), 1));
-		L.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(1, 3, 5)), 1));
-		L.add(new ItemSet(new ArrayList<Integer>(Arrays.asList(2, 3, 4)), 1));
-		*/
-//		System.out.println("L = " + L.toString());///
 		for (ItemSet is: L) {
 			if (is.getItems().size() > 1) {
 				List<List<Integer>> subsets = generateSubsets(is.getItems());
-//				System.out.println("subsets = " + subsets);///
 				for (List<Integer> x: subsets) {
 					List<Integer> y = new ArrayList<Integer>();
 					for (Integer it: is.getItems()){
@@ -311,13 +250,11 @@ public class DataMiner {
 					
 					// Add rule only when confidence is high enough
 					if (confidence >= minConf) {
-//						System.out.println("\tx = " + x.toString() + " y = " + y.toString());///
 						rules.add(new AssociationRule(x, y, support, confidence));
 					}
 				}
 			}
 		}
-//		System.out.println("############# end ############");///
 	}
 	
 	/**
@@ -380,7 +317,6 @@ public class DataMiner {
 		System.out.println("==High-confidence association rules (min_conf=" + minConf*100 + "%)");
 		Collections.sort(rules, Collections.reverseOrder(new AssociationRuleComparator()));
 		for (AssociationRule r: rules) {
-//			System.out.println("### r = " + r.toString());///
 			System.out.print("[");
 			List<Integer> XItemIDs = r.getX();
 			for (int i = 0; i < XItemIDs.size(); i++) {
@@ -414,31 +350,6 @@ public class DataMiner {
 	public static void main(String[] args) {
 		double minSup = -1;
 		double minConf = -1;
-//		/* Prompt for minSup and minConf */
-//		Scanner scanner = new Scanner(System.in);
-//		String input;
-//		
-//		do {
-//			try {
-//				System.out.println("Please enter minimum support:");
-//				input = scanner.next();
-//				minSup = Double.parseDouble(input);
-//				System.out.println();
-//			} catch (NumberFormatException e) {
-//				System.out.println("ERROR: Minimum support must be a double.\n");
-//			}
-//		} while (minSup < 0);
-//		
-//		do {
-//			try {
-//				System.out.println("Please enter minimum confidence:");
-//				input = scanner.next();
-//				minConf = Double.parseDouble(input);
-//				System.out.println();
-//			} catch (NumberFormatException e) {
-//				System.out.println("ERROR: Minimum confidence must be a double.\n");
-//			}
-//		} while (minConf < 0);
 		if (args.length != 2) {
 			System.out.println("ERROR: Wrong number of arguments. Please follow instructions in README.\n");
 			System.exit(0);
