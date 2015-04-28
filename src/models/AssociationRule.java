@@ -2,7 +2,7 @@ package models;
 
 import java.util.List;
 
-public class AssociationRule {
+public class AssociationRule{
 	private List<Integer> X;
 	private List<Integer> Y;
 	private double support;
@@ -29,5 +29,19 @@ public class AssociationRule {
 	
 	public double getConfidence() {
 		return confidence;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer s = new StringBuffer();
+		
+		s.append("{");
+		s.append(X.toString());
+		s.append(" => ");
+		s.append(Y.toString());
+		s.append("}");
+		s.append(":" + confidence + "," + support);
+		
+		return s.toString();
 	}
 }

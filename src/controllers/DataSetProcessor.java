@@ -45,7 +45,7 @@ public class DataSetProcessor {
             				if (c.toString().isEmpty()) {
             					print("Enrollment NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) >= 1000) {
-            					print("Enrollment > 1000" + "\t");
+            					print("Enrollment >= 1000" + "\t");
             				} else {
             					print("Enrollment < 1000" + "\t");
             				}
