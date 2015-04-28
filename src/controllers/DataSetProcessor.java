@@ -27,7 +27,7 @@ public class DataSetProcessor {
 
     private void getStudentsListFromExcel(String input_file_path) {
     	// Write csv header line
-    	writeCSVHeader();
+//    	writeCSVHeaders();
     	
     	FileInputStream fis = null;
         try {
@@ -44,7 +44,7 @@ public class DataSetProcessor {
             				print(c + "\t");
             			} else if (c.getColumnIndex() == 5) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Enrollment NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) >= 1000) {
             					print("Enrollment > 1000" + "\t");
             				} else {
@@ -52,321 +52,321 @@ public class DataSetProcessor {
             				}
             			} else if (c.getColumnIndex() == 7) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Acdemic Expectations NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 8.0) {
-            					print("Parent Acdemic Expectations ABOVE Average" + "\t");
+            					print("Parent Acdemic Expectations AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 8.0) {
-            					print("Parent Acdemic Expectations IS Average" + "\t");
+            					print("Parent Acdemic Expectations AT LEAST Average" + "\t");
             				} else {
             					print("Parent Acdemic Expectations BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 8) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Acdemic Expectations NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.4) {
-            					print("Student Acdemic Expectations ABOVE Average" + "\t");
+            					print("Student Acdemic Expectations AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.4) {
-            					print("Student Acdemic Expectations IS Average" + "\t");
+            					print("Student Acdemic Expectations AT LEAST Average" + "\t");
             				} else {
             					print("Student Acdemic Expectations BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 9) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Acdemic Expectations NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.6) {
-            					print("Teacher Acdemic Expectations ABOVE Average" + "\t");
+            					print("Teacher Acdemic Expectations AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.6) {
-            					print("Teacher Acdemic Expectations IS Average" + "\t");
+            					print("Teacher Acdemic Expectations AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Acdemic Expectations BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 10) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Acdemic Expectations NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.8) {
-            					print("Acdemic Expectations ABOVE Average" + "\t");
+            					print("Acdemic Expectations AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.8) {
-            					print("Acdemic Expectations IS Average" + "\t");
+            					print("Acdemic Expectations AT LEAST Average" + "\t");
             				} else {
             					print("Acdemic Expectations BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 11) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.6) {
-            					print("Parent Communication ABOVE Average" + "\t");
+            					print("Parent Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.6) {
-            					print("Parent Communication IS Average" + "\t");
+            					print("Parent Communication AT LEAST Average" + "\t");
             				} else {
             					print("Parent Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 12) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 6.0) {
-            					print("Student Communication ABOVE Average" + "\t");
+            					print("Student Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 6.0) {
-            					print("Student Communication IS Average" + "\t");
+            					print("Student Communication AT LEAST Average" + "\t");
             				} else {
             					print("Student Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 13) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 6.7) {
-            					print("Teacher Communication ABOVE Average" + "\t");
+            					print("Teacher Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 6.7) {
-            					print("Teacher Communication IS Average" + "\t");
+            					print("Teacher Communication AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 14) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 6.9) {
-            					print("Communication ABOVE Average" + "\t");
+            					print("Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 6.9) {
-            					print("Communication IS Average" + "\t");
+            					print("Communication AT LEAST Average" + "\t");
             				} else {
             					print("Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 15) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.2) {
-            					print("Parent Engagement ABOVE Average" + "\t");
+            					print("Parent Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.2) {
-            					print("Parent Engagement IS Average" + "\t");
+            					print("Parent Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Parent Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 16) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 6.7) {
-            					print("Student Engagement ABOVE Average" + "\t");
+            					print("Student Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 6.7) {
-            					print("Student Engagement IS Average" + "\t");
+            					print("Student Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Student Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 17) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.1) {
-            					print("Teacher Engagement ABOVE Average" + "\t");
+            					print("Teacher Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.1) {
-            					print("Teacher Engagement IS Average" + "\t");
+            					print("Teacher Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 18) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.1) {
-            					print("Engagement ABOVE Average" + "\t");
+            					print("Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.1) {
-            					print("Engagement IS Average" + "\t");
+            					print("Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 19) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 8.4) {
-            					print("Parent Safety and Respect ABOVE Average" + "\t");
+            					print("Parent Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 8.4) {
-            					print("Parent Safety and Respect IS Average" + "\t");
+            					print("Parent Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Parent Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 20) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 6.6) {
-            					print("Student Safety and Respect ABOVE Average" + "\t");
+            					print("Student Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 6.6) {
-            					print("Student Safety and Respect IS Average" + "\t");
+            					print("Student Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Student Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 21) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.4) {
-            					print("Teacher Safety and Respect ABOVE Average" + "\t");
+            					print("Teacher Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.4) {
-            					print("Teacher Safety and Respect IS Average" + "\t");
+            					print("Teacher Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 22) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 7.7) {
-            					print("Safety and Respect ABOVE Average" + "\t");
+            					print("Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 7.7) {
-            					print("Safety and Respect IS Average" + "\t");
+            					print("Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 23) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Horizon Academic Expectation NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.679) {
-            					print("Parent Horizon Academic Expectation ABOVE Average" + "\t");
+            					print("Parent Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.679) {
-            					print("Parent Horizon Academic Expectation IS Average" + "\t");
+            					print("Parent Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else {
             					print("Parent Horizon Academic Expectation BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 24) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Horizon Academic Expectation NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.606) {
-            					print("Student Horizon Academic Expectation ABOVE Average" + "\t");
+            					print("Student Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.679) {
-            					print("Student Horizon Academic Expectation IS Average" + "\t");
+            					print("Student Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else {
             					print("Student Horizon Academic Expectation BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 25) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Horizon Academic Expectation NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.607) {
-            					print("Teacher Horizon Academic Expectation ABOVE Average" + "\t");
+            					print("Teacher Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.679) {
-            					print("Teacher Horizon Academic Expectation IS Average" + "\t");
+            					print("Teacher Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Horizon Academic Expectation BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 26) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Horizon Academic Expectation NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.663) {
-            					print("Horizon Academic Expectation ABOVE Average" + "\t");
+            					print("Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.663) {
-            					print("Horizon Academic Expectation IS Average" + "\t");
+            					print("Horizon Academic Expectation AT LEAST Average" + "\t");
             				} else {
             					print("Horizon Academic Expectation BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 27) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Horizon Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.645) {
-            					print("Parent Horizon Communication ABOVE Average" + "\t");
+            					print("Parent Horizon Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.645) {
-            					print("Parent Horizon Communication IS Average" + "\t");
+            					print("Parent Horizon Communication AT LEAST Average" + "\t");
             				} else {
             					print("Parent Horizon Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 28) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Horizon Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.363) {
-            					print("Student Horizon Communication ABOVE Average" + "\t");
+            					print("Student Horizon Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.363) {
-            					print("Student Horizon Communication IS Average" + "\t");
+            					print("Student Horizon Communication AT LEAST Average" + "\t");
             				} else {
             					print("Student Horizon Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 29) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Horizon Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.594) {
-            					print("Teacher Horizon Communication ABOVE Average" + "\t");
+            					print("Teacher Horizon Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.594) {
-            					print("Teacher Horizon Communication IS Average" + "\t");
+            					print("Teacher Horizon Communication AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Horizon Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 30) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Horizon Communication NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.632) {
-            					print("Horizon Communication ABOVE Average" + "\t");
+            					print("Horizon Communication AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.632) {
-            					print("Horizon Communication IS Average" + "\t");
+            					print("Horizon Communication AT LEAST Average" + "\t");
             				} else {
             					print("Horizon Communication BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 31) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Horizon Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.696) {
-            					print("Parent Horizon Engagement ABOVE Average" + "\t");
+            					print("Parent Horizon Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.696) {
-            					print("Parent Horizon Engagement IS Average" + "\t");
+            					print("Parent Horizon Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Parent Horizon Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 32) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Horizon Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.674) {
-            					print("Student Horizon Engagement ABOVE Average" + "\t");
+            					print("Student Horizon Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.674) {
-            					print("Student Horizon Engagement IS Average" + "\t");
+            					print("Student Horizon Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Student Horizon Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 33) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Horizon Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.635) {
-            					print("Teacher Horizon Engagement ABOVE Average" + "\t");
+            					print("Teacher Horizon Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.635) {
-            					print("Teacher Horizon Engagement IS Average" + "\t");
+            					print("Teacher Horizon Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Horizon Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 34) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Horizon Engagement NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.673) {
-            					print("Horizon Engagement ABOVE Average" + "\t");
+            					print("Horizon Engagement AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.673) {
-            					print("Horizon Engagement IS Average" + "\t");
+            					print("Horizon Engagement AT LEAST Average" + "\t");
             				} else {
             					print("Horizon Engagement BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 35) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Parent Horizon Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.68) {
-            					print("Parent Horizon Safety and Respect ABOVE Average" + "\t");
+            					print("Parent Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.68) {
-            					print("Parent Horizon Safety and Respect IS Average" + "\t");
+            					print("Parent Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Parent Horizon Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 36) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Student Horizon Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.554) {
-            					print("Student Horizon Safety and Respect ABOVE Average" + "\t");
+            					print("Student Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.554) {
-            					print("Student Horizon Safety and Respect IS Average" + "\t");
+            					print("Student Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Student Horizon Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 37) {
             				if (c.toString().isEmpty()) {
-            					print("NOT AVAILABLE" + "\t");
+            					print("Teacher Horizon Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.595) {
-            					print("Teacher Horizon Safety and Respect ABOVE Average" + "\t");
+            					print("Teacher Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.595) {
-            					print("Teacher Horizon Safety and Respect IS Average" + "\t");
+            					print("Teacher Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					print("Teacher Horizon Safety and Respect BELOW Average" + "\t");
             				}
             			} else if (c.getColumnIndex() == 38) {
             				if (c.toString().isEmpty()) {
-            					println("NOT AVAILABLE" + "\t");
+            					println("Horizon Safety and Respect NOT AVAILABLE" + "\t");
             				} else if (Double.parseDouble(c.toString()) > 0.645) {
-            					println("Horizon Safety and Respect ABOVE Average" + "\t");
+            					println("Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else if (Double.parseDouble(c.toString()) == 0.645) {
-            					println("Horizon Safety and Respect IS Average" + "\t");
+            					println("Horizon Safety and Respect AT LEAST Average" + "\t");
             				} else {
             					println("Horizon Safety and Respect BELOW Average" + "\t");
             				}
@@ -385,7 +385,7 @@ public class DataSetProcessor {
         }
     }
     
-    private void writeCSVHeader() {
+    private void writeCSVHeaders() {
     	try {
     		writer.write("DBN#_1");
         	writer.write("DBN#_2");
